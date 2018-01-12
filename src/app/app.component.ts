@@ -82,7 +82,8 @@ export class AppComponent implements OnInit {
       legend: { position: 'right'},
       animation: {
         animateScale: true
-      }
+      },
+      maintainAspectRatio: true,
     };
   }
 
