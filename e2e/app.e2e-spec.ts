@@ -5,6 +5,7 @@ describe('front-end-challenge App', () => {
 
   beforeEach(() => {
     page = new FrontEndChallengePage();
+
     page.navigateTo();
   });
 
