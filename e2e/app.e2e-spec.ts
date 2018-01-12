@@ -5,10 +5,22 @@ describe('front-end-challenge App', () => {
 
   beforeEach(() => {
     page = new FrontEndChallengePage();
+    page.navigateTo();
   });
 
-  it('should display message saying app works', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+  it('should display message saying app title', () => {
+    expect(page.getTitleText()).toContain("CADASTRE-SE");
+  });
+
+  it('should display form with name field', () => {
+    expect(page.isNameFieldAvailable()).toBeTruthy(true);
+  });
+
+  it('should display form with lastname field', () => {
+    expect(page.isLastNameFieldAvailable()).toBeTruthy();
+  });
+
+  it('should display form with share field', () => {
+    expect(page.isShareFieldAvailable()).toBeTruthy();
   });
 });
