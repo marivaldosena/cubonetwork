@@ -20,4 +20,8 @@ export class FrontEndChallengePage {
   isShareFieldAvailable() {
     return element(by.css('app-root form #share')).isPresent();
   }
+
+  isShareDataTableAvailable() {
+    return element(by.css('app-root table')).isPresent();
+  }
 }

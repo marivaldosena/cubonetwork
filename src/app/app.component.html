@@ -1,4 +1,5 @@
 <article id="share-data" name="share-data">
+  <!-- Cabeçalho -->
   <section id="cabecalho" name="cabecalho">
     <header>
       <h1>
@@ -28,5 +29,31 @@
         <button type="submit">Enviar</button>
       </div>
     </form>
+  </section>
+
+
+  <section id="share-table" name="share-data">
+    <!-- Tabela de participação -->
+    <table>
+      <!-- Cabeçalho da tabela -->
+      <thead>
+        <tr>
+          <th></th>
+          <th>Nome</th>
+          <th>Sobrenome</th>
+          <th>Participação</th>
+        </tr>
+      </thead>
+
+      <!-- Corpo da tabela -->
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.lastname }}</td>
+          <td>{{ employee.share }}</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 </article>
