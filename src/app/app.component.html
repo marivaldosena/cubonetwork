@@ -1,62 +1,73 @@
 <article id="share-data" name="share-data">
   <!-- Cabeçalho -->
-  <section id="cabecalho" name="cabecalho">
+  <section id="cabecalho" name="cabecalho" class="cabecalho container-fluid">
     <header>
-      <h1>
+      <h1 class="text-center">
         {{title}}
       </h1>
     </header>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <form action="">
-      <!--- Nome -->
-      <div>
-        <input type="text" name="name" id="name" placeholder="Nome">
-      </div>
+    <div class="container">
+      <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <div class="row">
+        <!-- Formulário de Participação -->
+        <form class="form-inline">
+          <!-- Nome -->
+          <div class="form-group mb-4">
+            <input type="text" name="name" id="name" class="form-control" placeholder="Nome">
+          </div>
 
-      <!-- Sobrenome -->
-      <div>
-        <input type="text" name="lastname" id="lastname" placeholder="Sobrenome">
-      </div>
+          <!-- Sobrenome -->
+          <div class="form-group mb-4">
+            <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Sobrenome">
+          </div>
 
-      <!-- Participação -->
-      <div>
-        <input type="number" name="share" id="share" placeholder="Participação">
-      </div>
+          <!-- Participação -->
+          <div class="form-group mb-4">
+            <input type="number" name="share" id="share" class="form-control" placeholder="Participação">
+          </div>
 
-      <!-- Ações -->
-      <div>
-        <button type="submit">Enviar</button>
+          <!-- Ações -->
+          <div class="form-group mb-4">
+            <button type="submit" class="btn btn-link">Enviar</button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   </section>
 
+  <!-- Visualização de tabela e gráfico de participação -->
+  <section id="share-data-area" name="share-data-area" class="container">
+    <h2 class="text-center">DADOS</h2>
+    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <section id="share-table" name="share-data" class="col-sm-6 col-md-6">
+      <!-- Tabela de participação -->
+      <table class="table table-bordered table-hover">
+        <!-- Cabeçalho da tabela -->
+        <thead>
+          <tr>
+            <th></th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Participação</th>
+          </tr>
+        </thead>
 
-  <section id="share-table" name="share-data">
-    <!-- Tabela de participação -->
-    <table>
-      <!-- Cabeçalho da tabela -->
-      <thead>
-        <tr>
-          <th></th>
-          <th>Nome</th>
-          <th>Sobrenome</th>
-          <th>Participação</th>
-        </tr>
-      </thead>
+        <!-- Corpo da tabela -->
+        <tbody>
+          <tr *ngFor="let employee of employees">
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.lastname }}</td>
+            <td>{{ employee.share / total_share | percent }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-      <!-- Corpo da tabela -->
-      <tbody>
-        <tr *ngFor="let employee of employees">
-          <td>{{ employee.id }}</td>
-          <td>{{ employee.name }}</td>
-          <td>{{ employee.lastname }}</td>
-          <td>{{ employee.share }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-  <section id="chart-area" name="chart-area">
-      <chart id="share-data-chart" name="share-data-chart" [type]="chart_type" [data]="chart_data" [options]="chart_options"></chart>
+    <!-- Gráfico -->
+    <section id="chart-area" name="chart-area" class="col-sm-6 col-md-6">
+        <chart id="share-data-chart" name="share-data-chart" [type]="chart_type" [data]="chart_data" [options]="chart_options"></chart>
+    </section>
   </section>
 </article>

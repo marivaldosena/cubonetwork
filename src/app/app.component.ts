@@ -58,7 +58,6 @@ export class AppComponent implements OnInit {
     }
   ];
 
-
   enableChart() {
     let rotulos = this.employees.map(e => e.name + ' ' + e.lastname);
     this.chart_type = 'doughnut';
@@ -79,7 +78,14 @@ export class AppComponent implements OnInit {
     };
     this.chart_options = {
       responsive: true,
-      legend: { position: 'right'},
+      legend: {
+        position: 'right',
+        labels: {
+          fontSize: 14,
+          padding: 5,
+          boxWidth: 20
+        }
+      },
       animation: {
         animateScale: true
       },

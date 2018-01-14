@@ -1,4 +1,100 @@
-#share-data-chart {
-  position: relative;
-  width: 30vw;
+$header-bg-color: #00B0FF;
+$black: #000;
+$white: #fff;
+$header-font-color: #fff;
+$share-data-font-color: #616161;
+$chart_area_title: #37474F;
+$table-border-color: #BDBDBD;
+
+#share-data-area {
+  margin-top: 2rem;
+  color: $share-data-font-color;
+
+  #chart-area {
+    position: relative;
+    float: left;
+
+    /*
+     * As medias queries abaixo são para ter maior controle de
+     * formatação com o gráfico gerado pelo Chart.js, já que
+     * a formatação nativa dele não contempla responsividade
+     * ao Bootstrap.
+     */
+    @media screen and (min-width: 576px) {
+      max-width: 40vw;
+      top: -15rem;
+      left: 22.5rem;
+    }
+
+    @media screen and (min-width: 768px) {
+      max-width: 42vw;
+      top: -16rem;
+      left: 24rem;
+    }
+    @media screen and (min-width: 992px) {
+      left: 30rem;
+      max-width: 43vw;
+    }
+    @media screen and (min-width: 1200px) {
+      max-width: 40vw;
+      left: 38rem;
+      top: -18rem;
+    }
+  }
+
+  #share-table {
+    table {
+      margin-top: 2rem;
+      color: $share-data-font-color;
+
+      td, th {
+        border: 1px solid $table-border-color;
+      };
+
+      td:nth-of-type(1) {
+        text-align: center;
+      };
+      td:last-of-type {
+        text-align: center;
+      }
+    }
+  }
+
+  h2 {
+    font-weight: bold;
+    color: $chart_area_title;
+  }
+}
+
+/* Cabeçalho */
+.cabecalho {
+  background: $header-bg-color;
+  color: $header-font-color;
+  margin: 0 0 0;
+
+  /* Formulário */
+  form {
+    margin: 0 auto;
+    padding: 2px 5px;
+
+    .form-group {
+      @media screen and (max-width: 576px) {
+        width: 100%;
+
+        .btn-link {
+          width: 100%;
+        }
+      }
+
+      margin: 5px 10px;
+
+      /* Botão Enviar do cabeçalho */
+      .btn-link {
+        border: 2px solid $white;
+        color: $header-font-color;
+        text-transform: uppercase;
+        padding: .375rem 1.2rem;
+      }
+    }
+  }
 }
