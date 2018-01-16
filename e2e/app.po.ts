@@ -1,4 +1,4 @@
-import { browser, element, by } from 'protractor';
+import { browser, element, by,  } from 'protractor';
 
 export class FrontEndChallengePage {
   navigateTo() {
@@ -25,7 +25,7 @@ export class FrontEndChallengePage {
     return element(by.css('app-root table')).isPresent();
   }
 
-  getEmployeesList() {
-    return browser.get('http://localhost:3000/employees');
-  }
+  // getEmployeesList() {
+  //   return browser.get('http://localhost:3000/employees');
+  // }
 }

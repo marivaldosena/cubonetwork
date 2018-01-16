@@ -21,11 +21,7 @@ describe('front-end-challenge App', () => {
     expect(page.isLastNameFieldAvailable()).toBeTruthy();
   });
 
-  it('should display form with share field', () => {
-    expect(page.isShareFieldAvailable()).toBeTruthy();
-  });
-
-  // it('should return employees list', () => {
-  //   expect(page.getEmployeesList()).toBeTruthy();
+  // it('should display form with share field', () => {
+  //   expect(page.isShareFieldAvailable()).toBeTruthy();
   // });
 });
