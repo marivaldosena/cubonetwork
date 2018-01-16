@@ -3,7 +3,7 @@ import { FrontEndChallengePage } from './app.po';
 describe('front-end-challenge App', () => {
   let page: FrontEndChallengePage;
 
-  beforeEach(() => {
+  beforeAll(() => {
     page = new FrontEndChallengePage();
 
     page.navigateTo();
