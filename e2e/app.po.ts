@@ -24,4 +24,8 @@ export class FrontEndChallengePage {
   isShareDataTableAvailable() {
     return element(by.css('app-root table')).isPresent();
   }
+
+  getEmployeesList() {
+    return browser.get('http://localhost:3000/employees');
+  }
 }
