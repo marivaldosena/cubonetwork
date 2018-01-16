@@ -10,28 +10,7 @@
     <div class="container">
       <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <div class="row">
-        <!-- Formulário de Participação -->
-        <form #f="ngForm" class="form-inline">
-          <!-- Nome -->
-          <div class="form-group mb-4">
-            <input type="text" name="name" id="name" class="form-control" placeholder="Nome">
-          </div>
-
-          <!-- Sobrenome -->
-          <div class="form-group mb-4">
-            <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Sobrenome">
-          </div>
-
-          <!-- Participação -->
-          <div class="form-group mb-4">
-            <input type="number" name="share" id="share" class="form-control" placeholder="Participação">
-          </div>
-
-          <!-- Ações -->
-          <div class="form-group mb-4">
-            <button type="submit" class="btn btn-link">Enviar</button>
-          </div>
-        </form>
+          <app-form></app-form>
       </div>
     </div>
   </section>

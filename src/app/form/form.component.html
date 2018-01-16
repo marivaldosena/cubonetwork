@@ -1,0 +1,42 @@
+<!-- Formulário de Participação -->
+<form #f="ngForm" (ngSubmit)="onSubmit()"  class="form-inline">
+  <!-- Nome -->
+  <div class="form-group mb-4">
+    <input type="text" name="name" id="name" [(ngModel)]="model.name"
+      #name="ngModel" class="form-control" placeholder="Nome"
+      required minlength="3" [ngClass]="{
+        'is-invalid': name.invalid && (name.dirty || name.touched),
+        'is-valid': name.valid && (name.dirty || name.touched)
+      }">
+  </div>
+
+  <!-- Sobrenome -->
+  <div class="form-group mb-4">
+    <input type="text" name="lastname" id="lastname" [(ngModel)]="model.lastname"
+    #lastname="ngModel" class="form-control" placeholder="Sobrenome"
+    required minlength="3" [ngClass]="{
+      'is-invalid': lastname.invalid && (lastname.dirty || lastname.touched),
+      'is-valid': lastname.valid && (lastname.dirty || lastname.touched)
+    }">
+  </div>
+
+  <!-- Participação -->
+  <div class="form-group mb-4">
+    <input type="number" name="share" id="share" [(ngModel)]="model.share"
+    #share="ngModel" class="form-control" placeholder="Participação"
+    required min="1" [ngClass]="{
+      'is-invalid': share.invalid && (share.dirty || share.touched),
+      'is-valid': share.valid && (share.dirty || share.touched)
+    }">
+  </div>
+
+  <!-- Ações -->
+  <div class="form-group mb-4">
+    <button type="submit" class="btn btn-link" [disabled]="form.invalid">Enviar</button>
+  </div>
+</form>
+
+<div class="form-control-feedback text-center">
+  <p *ngIf="form.invalid && (form.touched || form.dirty)"
+    class="text-danger">Campo inválido</p>
+</div>

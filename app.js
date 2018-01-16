@@ -10,6 +10,8 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(helmet());
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET,POST');
   next();
 });
 
@@ -61,7 +63,7 @@ app.post('/employees', (req, res) => {
   let share = req.body.share;
 
   req.checkBody('name').exists().isLength({ min: 3 });
-  req.checkBody('lastname').exists().isLength({ min: 5 });
+  req.checkBody('lastname').exists().isLength({ min: 3 });
   req.checkBody('share').exists().isInt({ gt: 0});
 
   const errors = req.validationErrors();

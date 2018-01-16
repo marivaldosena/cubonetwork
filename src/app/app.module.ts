@@ -4,12 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { ChartModule } from 'angular2-chartjs';
+import { EmployeeDataService } from './employee-data.service';
 
 import { AppComponent } from './app.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +20,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     ChartModule
   ],
-  providers: [],
+  providers: [EmployeeDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

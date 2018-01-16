@@ -1,0 +1,28 @@
+$white: #fff;
+$form-font: #fff;
+
+/* Formulário */
+form {
+  margin: 0 auto;
+  padding: 2px 5px;
+
+  .form-group {
+    @media screen and (max-width: 576px) {
+      width: 100%;
+
+      .btn-link {
+        width: 100%;
+      }
+    }
+
+    margin: 5px 10px;
+
+    /* Botão Enviar do cabeçalho */
+    .btn-link {
+      border: 2px solid $white;
+      color: $form-font;
+      text-transform: uppercase;
+      padding: .375rem 1.2rem;
+    }
+  }
+}

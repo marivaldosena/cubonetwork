@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ChartComponent } from 'angular2-chartjs';
-import { Http } from '@angular/http';
-import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { OnInit, OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { EmployeeDataService } from "./employee-data.service";
+import { Employee } from 'app/employee';
 
 @Component({
   selector: 'app-root',
@@ -14,19 +15,17 @@ export class AppComponent implements OnInit {
   chart_options = {};
   chart_type = '';
   total_share = 0;
-  /*
-   * Refatorar: Nas próximas iterações, transferir o
-   * vetor para uma classe a parte.
-   */
-  employees = []
+  employees = [];
 
-  constructor(private http: Http) {
+  constructor(private employeeService: EmployeeDataService) {
   }
 
-  ngOnInit() {
-    this.getEmployees();
-    this.total_share = this.getTotalShare();
-    this.enableChart();
+  async ngOnInit() {
+    await this.getEmployees();
+
+  }
+
+  async ngOnchanges() {
   }
 
   enableChart() {
@@ -65,14 +64,17 @@ export class AppComponent implements OnInit {
   }
 
   getTotalShare() {
-    return this.employees.reduce((total, e) => total + e.share, 0) || 100;
+    return this.employees.reduce((total, e) => total + e.share, 0);
   }
 
   getEmployees() {
-    this.http
-      .get('http://localhost:3000/employees')
-      .subscribe(data => {
-        this.employees = data.json();
+    this
+      .employeeService
+      .getEmployees()
+      .then(res => {
+        this.employees = res;
+        this.total_share = this.getTotalShare();
+        this.enableChart();
       })
     ;
   }
